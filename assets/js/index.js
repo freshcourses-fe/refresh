@@ -76,3 +76,46 @@ const result2 = map.delete(2);
 // for (const value of map.values()) {
 //   console.log(value);
 // }
+
+const map2 = new Map([
+  ['key', 'value'],
+  [1, 10],
+]);
+
+const set = new Set();
+
+set.add(1); // добавить значение
+set.add(5);
+set.add('test');
+set.add(1);
+const res = set.has('1'); // проверка наличия значения
+set.delete(1);
+set.add(user);
+//  set.clear()
+
+// set.forEach((value, value1, set) => {
+//   console.log(value);
+//   console.log(value1);
+//   console.log(value1 === value);
+//   console.log(set);
+// });
+
+for (const item of set.entries()) {
+  console.log(item);
+}
+
+const set2 = new Set([1, 24, 5, 6, 79, 0, 56, 0, 213]);
+
+/*
+ Составить список уникальных имен 
+ на осонвании массивов с именами пользователей
+*/
+const names1 = ['Alex', 'Petya', 'Natasha'];
+
+const names2 = ['Pavlo', 'Anton'];
+const names3 = ['Anton', 'Alex', 'Timur'];
+
+// данные из всех массивов будут елементами
+const popularNames = new Set(); 
+
+

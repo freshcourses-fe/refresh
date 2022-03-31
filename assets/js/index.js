@@ -116,6 +116,21 @@ const names2 = ['Pavlo', 'Anton'];
 const names3 = ['Anton', 'Alex', 'Timur'];
 
 // данные из всех массивов будут елементами
-const popularNames = new Set(); 
+const popularNames = new Set([...names1, ...names2, ...names3]);
+
+// for (const name of names1) {
+//   popularNames.add(name);
+// }
+
+// for (const name of names2) {
+//   popularNames.add(name);
+// }
+// for (const name of names3) {
+//   popularNames.add(name);
+// }
+
+// names1.forEach((name) => {
+//   popularNames.add(name);
+// });
 
 

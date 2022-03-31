@@ -133,4 +133,38 @@ const popularNames = new Set([...names1, ...names2, ...names3]);
 //   popularNames.add(name);
 // });
 
+/*
+
+  при загрузке страницы пользователя спросить язык
+
+  когда пользователь выберет язык показать ему приветствие
+  на его языке алертом
+  *если язык не поддерживается то естьльзовать английское приветствие
+  строка с приветсвием хранится в отдельном Мапе
+
+*/
+const userLanguage = prompt(`Select language:
+en - English
+ua - Ukrainian`);
+
+const greetings = new Map([
+  [
+    'en',
+    {
+      greetingText: 'Hello',
+      pageTitle: 'Main Page',
+    },
+  ],
+]);
+
+greetings.set('ua', { greetingText: 'Вітаю', pageTitle: 'Головна сторінка' });
+
+if (greetings.has(userLanguage)) {
+  const translation = greetings.get(userLanguage);
+  alert(translation.greetingText);
+} else {
+  const translation = greetings.get('en');
+  alert(translation.greetingText);
+}
+
 

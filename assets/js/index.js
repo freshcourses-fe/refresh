@@ -1,35 +1,61 @@
-const arr = [1, 'test', true, null, { name: 'User' }];
-const numbers = [20, 5, 78, 63, 144];
+// function Car (model, maxSpeed, isLightsOn) {
+//   this.model = model;
+//   this.maxSpeed = maxSpeed;
+//   this.isLightsOn = isLightsOn;
+// }
 
-Array.isArray(arr);
+// function CarPrototype() {
+//   this.turnLightsOn = function() {
+//     this.isLightsOn = true;
 
-const mapRes = arr.map((elem, index, arr) => {
-  // console.log(elem);
-  elem++;
+//     return this.isLightsOn;
+//   }
+// }
 
-  return index + Math.random();
-});
+// const carProto = new CarPrototype();
+// Car.prototype = carProto;
+// const car = new Car();
 
-const forEachResult = arr.forEach((elem, index, arr) => {
-  console.log(elem);
+class Car {
+  constructor(model, maxSpeed, isLightsOn) {
+    this.model = model;
+    this.maxSpeed = maxSpeed;
+    this.isLightsOn = isLightsOn;
+  }
 
-  elem++;
-});
+  turnLightsOn() {
+    this.isLightsOn = true;
+    return this.isLightsOn;
+  }
 
-const filterResult = arr.filter((elem, index, arr) => {
-  return elem;
-});
+  turnLightsOff() {
+    this.isLightsOn = false;
+    return this.isLightsOn;
+  }
 
-const reduceResult = numbers.reduce((prevValue, currentValue, index, arr) => {
-  return prevValue * currentValue;
-}, 1);
+  static isCar(obj) {
+    return obj instanceof Car;
+  }
 
-// const spliceRes = arr.splice(1, 2, 'new', false, null);
+  SECRET = 124;
+}
 
-const sliceRes = arr.slice(1, 3);
+class SuperCar extends Car {
+  constructor(maxSpeed) {
+    super('supercar', maxSpeed, false);
+    this.text = 12354;
+  }
 
-const concatArr = arr.concat(1,3,4,5,76, ['test','text','asdg', [1,2,4,5,6]]);
+  turnLightsOn() {
+    this.isLightsOn = Math.random() > 0.5;
+    return this.isLightsOn;
+  }
 
-const neoConcatArr = [...arr,1,3,4,5,76, ...['test','text','asdg', [1,2,4,5,6]] ];
+  turnLightsOff() {
+    this.isLightsOn = Math.random() > 0.5;
+    return this.isLightsOn;
+  }
+}
 
-const joinRes = arr.join(' - ');
+const car = new Car('test', 21433, true);
+const car2 = new SuperCar(21433);

@@ -1,61 +1,42 @@
-// function Car (model, maxSpeed, isLightsOn) {
-//   this.model = model;
-//   this.maxSpeed = maxSpeed;
-//   this.isLightsOn = isLightsOn;
-// }
+// getElementById;
+// getElementsByClassName;
 
-// function CarPrototype() {
-//   this.turnLightsOn = function() {
-//     this.isLightsOn = true;
+console.dir(document); // DOM точка входа
 
-//     return this.isLightsOn;
-//   }
-// }
+const h1 = document.getElementById('mainHeader'); // стучимся к айдишнику
+const [thirdH2, firstH2, secondH2] = document.getElementsByTagName('h2'); // находим ВСЕ элементы с данным тегом
+const queryH1 = document.querySelector('#mainHeader span'); // поиск по СSS селектору
+const spans = document.querySelectorAll('#mainHeader span'); // // поиск по СSS селектору всех элементов
 
-// const carProto = new CarPrototype();
-// Car.prototype = carProto;
-// const car = new Car();
 
-class Car {
-  constructor(model, maxSpeed, isLightsOn) {
-    this.model = model;
-    this.maxSpeed = maxSpeed;
-    this.isLightsOn = isLightsOn;
-  }
+h1.addEventListener('click', () => {
+  alert('clicked on h1');
+});
 
-  turnLightsOn() {
-    this.isLightsOn = true;
-    return this.isLightsOn;
-  }
+h1.addEventListener('click', () => {
+  alert('clicked on h1 x2');
+});
 
-  turnLightsOff() {
-    this.isLightsOn = false;
-    return this.isLightsOn;
-  }
+/*
+  Есть кнопка
+  при наведении на неё курсора должен былетать алерт, на котором написано, просьба 
+  не висеть над душой
+  При выходе курсора за пределы кнопки, она лаертом должна вас благодарить
+*/
 
-  static isCar(obj) {
-    return obj instanceof Car;
-  }
+const btn = document.getElementById('btn');
 
-  SECRET = 124;
+function enterListener() {
+  alert('Уйди плз');
 }
 
-class SuperCar extends Car {
-  constructor(maxSpeed) {
-    super('supercar', maxSpeed, false);
-    this.text = 12354;
-  }
-
-  turnLightsOn() {
-    this.isLightsOn = Math.random() > 0.5;
-    return this.isLightsOn;
-  }
-
-  turnLightsOff() {
-    this.isLightsOn = Math.random() > 0.5;
-    return this.isLightsOn;
-  }
+function leaveListener() {
+  alert('спс');
 }
 
-const car = new Car('test', 21433, true);
-const car2 = new SuperCar(21433);
+btn.addEventListener('mouseenter', enterListener);
+
+btn.addEventListener('mouseleave', leaveListener);
+
+btn.removeEventListener('mouseenter', enterListener);
+btn.removeEventListener('mouseleave', leaveListener);

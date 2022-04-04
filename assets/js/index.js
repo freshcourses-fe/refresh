@@ -1,42 +1,17 @@
-// getElementById;
-// getElementsByClassName;
-
-console.dir(document); // DOM точка входа
-
-const h1 = document.getElementById('mainHeader'); // стучимся к айдишнику
-const [thirdH2, firstH2, secondH2] = document.getElementsByTagName('h2'); // находим ВСЕ элементы с данным тегом
-const queryH1 = document.querySelector('#mainHeader span'); // поиск по СSS селектору
-const spans = document.querySelectorAll('#mainHeader span'); // // поиск по СSS селектору всех элементов
-
-
-h1.addEventListener('click', () => {
-  alert('clicked on h1');
-});
-
-h1.addEventListener('click', () => {
-  alert('clicked on h1 x2');
-});
-
-/*
-  Есть кнопка
-  при наведении на неё курсора должен былетать алерт, на котором написано, просьба 
-  не висеть над душой
-  При выходе курсора за пределы кнопки, она лаертом должна вас благодарить
-*/
-
 const btn = document.getElementById('btn');
 
-function enterListener() {
-  alert('Уйди плз');
-}
+let counter = 0;
 
-function leaveListener() {
-  alert('спс');
-}
+const counterSpan = document.querySelector('#counterSpan');
 
-btn.addEventListener('mouseenter', enterListener);
+const clickHandler = () => {
+  // counterSpan.innerText = ++counter;
+  counterSpan.textContent = ++counter;
+  // counterSpan.innerHTML = `<span onmouseenter="window.close()">${++counter}</span>`;
+};
 
-btn.addEventListener('mouseleave', leaveListener);
+btn.addEventListener('click', clickHandler);
 
-btn.removeEventListener('mouseenter', enterListener);
-btn.removeEventListener('mouseleave', leaveListener);
+/*
+  Приделать кликеру кнопку обнуления счета
+*/

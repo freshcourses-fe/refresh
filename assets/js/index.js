@@ -1,24 +1,18 @@
 const btn = document.getElementById('btn');
-const btn2 = document.getElementById('btn2');
+const rootElem = document.getElementById('root');
 
-let counter = 0;
+function clickHandler() {
+  const messageText = prompt('Enter messsage');
 
-const counterSpan = document.querySelector('#counterSpan');
+  const textPar = document.createElement('p');
+  textPar.innerText = messageText;
 
-const clickHandler = () => {
-  // counterSpan.innerText = ++counter;
-  counterSpan.textContent = ++counter;
-  // counterSpan.innerHTML = `<span onmouseenter="window.close()">${++counter}</span>`;
-};
+  rootElem.append(textPar);
 
-const clearScorehandler = () => {
-  counter = 0;
-  counterSpan.innerText = counter;
-};
+  textPar.addEventListener('click', () => {
+    textPar.remove();
+  });
+}
 
 btn.addEventListener('click', clickHandler);
-btn2.addEventListener('click', clearScorehandler);
 
-/*
-  Приделать кликеру кнопку обнуления счетчика и счета
-*/
